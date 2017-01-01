@@ -87,7 +87,7 @@ def get_videos(movie_id):
     span = tree.find('span', {'class': 'topTableImage'})
     movie = {
         'title': span.img['title'],
-        'thumb': span.img['src']
+        'thumb': 'http:' + span.img['src']
     }
 
     table = tree.find('table', {'class': 'bottomTable'})
@@ -142,7 +142,7 @@ def _get_movies(url):
     movies = [{
         'id': td.a['href'].split('/')[2],
         'title': td.a.img['alt'],
-        'thumb': td.a.img['src']
+        'thumb': 'http:' + td.a.img['src']
     } for td in tree.findAll('td', 'indexTableTrailerImage') if td.a.img]
     has_next_page = tree.find(
         'a',
