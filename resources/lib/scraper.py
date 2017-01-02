@@ -21,10 +21,11 @@ import json
 import urllib2
 from BeautifulSoup import BeautifulSoup
 
-MAIN_URL = 'http://www.hd-trailers.net/'
-NEXT_IMG = 'http://static.hd-trailers.net/images/mobile/next.png'
-PREV_IMG = 'http://static.hd-trailers.net/images/mobile/prev.png'
-USER_AGENT = 'XBMC Add-on HD-Trailers.net v1.1.0'
+URL_PROTO = 'https:'
+MAIN_URL = URL_PROTO + '//www.hd-trailers.net/'
+NEXT_IMG = URL_PROTO + '//static.hd-trailers.net/images/mobile/next.png'
+PREV_IMG = URL_PROTO + '//static.hd-trailers.net/images/mobile/prev.png'
+USER_AGENT = 'XBMC Add-on HD-Trailers.net v1.1.1'
 
 SOURCES = (
     'apple.com',
@@ -87,7 +88,7 @@ def get_videos(movie_id):
     span = tree.find('span', {'class': 'topTableImage'})
     movie = {
         'title': span.img['title'],
-        'thumb': 'http:' + span.img['src']
+        'thumb': URL_PROTO + span.img['src']
     }
 
     table = tree.find('table', {'class': 'bottomTable'})
@@ -142,7 +143,7 @@ def _get_movies(url):
     movies = [{
         'id': td.a['href'].split('/')[2],
         'title': td.a.img['alt'],
-        'thumb': 'http:' + td.a.img['src']
+        'thumb': URL_PROTO + td.a.img['src']
     } for td in tree.findAll('td', 'indexTableTrailerImage') if td.a.img]
     has_next_page = tree.find(
         'a',
