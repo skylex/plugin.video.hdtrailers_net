@@ -1,3 +1,6 @@
+1.2.3 (02.01.2016)
+- fix URLs of posters in scraper code
+
 1.2.2 (16.03.2014)
 - updated translations
 
