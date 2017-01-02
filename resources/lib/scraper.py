@@ -25,7 +25,7 @@ URL_PROTO = 'https:'
 MAIN_URL = URL_PROTO + '//www.hd-trailers.net/'
 NEXT_IMG = URL_PROTO + '//static.hd-trailers.net/images/mobile/next.png'
 PREV_IMG = URL_PROTO + '//static.hd-trailers.net/images/mobile/prev.png'
-USER_AGENT = 'XBMC Add-on HD-Trailers.net v1.1.1'
+USER_AGENT = 'Kodi Add-on HD-Trailers.net v1.2.3'
 
 SOURCES = (
     'apple.com',
